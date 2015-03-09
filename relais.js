@@ -37,6 +37,12 @@ secucard.on('onMessage', function(msg) {
     if (msg.body.type == 'SwitchRelais') {
         _this.log.debug("SwitchRelais: " + msg.body.data.value);
 	    wpi.digital_write( 6, msg.body.data.value );
+
+        // nach einer Sekunde wieder aus
+        setTimeout(function() {
+            wpi.digital_write( 6, wpi.WRITE.LOW );
+        }, 1000)
+
     }
 });
 
