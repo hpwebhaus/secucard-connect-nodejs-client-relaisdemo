@@ -1,0 +1,19 @@
+{
+  "name": "node-secucard",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A node-client for secucard smart API",
+  "main": "./lib/main",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Joos | bitbakers",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "glob": "~4.1.3",
+    "lodash": "~2.4.1",
+    "node-uuid": "~1.4.2",
+    "node-wiringpi": "0.0.1",
+    "request": "~2.48.0"
+  }
+}
