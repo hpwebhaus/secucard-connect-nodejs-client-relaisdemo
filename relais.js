@@ -31,10 +31,6 @@ onDeviceAuthorizationSuccess
 onMessage
 */
 
-secucard.on('onDeviceAuthorizationSuccess', function(body) {
-    console.log(body);
-    console.log("Please enter user-pin: "+body.user_code);
-});
 
 
 secucard.on('onMessage', function(msg) {
