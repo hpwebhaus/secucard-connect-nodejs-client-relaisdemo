@@ -40,9 +40,18 @@ secucard.on('onDeviceAuthorizationSuccess', function(body) {
 secucard.on('onMessage', function(msg) {
     if (msg.body.type == 'SwitchRelais') {
         _this.log.debug("SwitchRelais: " + msg.body.data.value);
-	wpi.digital_write( 6, msg.body.data.value );
+	    wpi.digital_write( 6, msg.body.data.value );
     }
 });
+
+secucard.on('onStompDisconnect', function(msg) {
+    console.log("Got disconnected. Exit to get restarted");
+    setTimeout(function() {
+        wpi.digital_write( 6, wpi.WRITE.LOW );
+        process.exit();
+    }, 1000)
+});
+
 
 secucard.connect(function() {
 
